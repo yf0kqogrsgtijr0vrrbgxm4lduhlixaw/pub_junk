@@ -1,7 +1,3 @@
-local isScriptable = clonefunction(isscriptable);
-local setScriptable = clonefunction(setscriptable);
-local setScriptableCache = {};
-
 local textService = cloneref(game:GetService("TextService"));
 
 local drawing = {
