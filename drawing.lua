@@ -1,3 +1,5 @@
+-- original: https://github.com/smi9/UnnamedCheats/blob/main/drawing.lua
+
 local textService = cloneref(game:GetService("TextService"));
 
 local drawing = {
