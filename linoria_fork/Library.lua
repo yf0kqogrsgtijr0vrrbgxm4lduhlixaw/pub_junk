@@ -1,4 +1,4 @@
-local cloneref = (cloneref or clonereference or function(instance: any)
+    local cloneref = (cloneref or clonereference or function(instance: any)
 		return instance
 	end)
 	local InputService: UserInputService = cloneref(game:GetService("UserInputService"))
@@ -4484,6 +4484,20 @@ local cloneref = (cloneref or clonereference or function(instance: any)
 				-- Library:SafeCallback(Func, Slider.Value);
 			end
 
+            local function Round(value) -- decimals support
+	            if Slider.Rounding == 0 then
+		            return math.floor(value)
+	            end
+
+	            local places = Slider.Rounding
+	            if places < 1 then
+		            places = math.floor(-math.log10(places) + 0.5)
+	            end
+
+	            return tonumber(string.format("%." .. places .. "f", value))
+            end
+
+            --[[
 			local function Round(Value)
 				if Slider.Rounding == 0 then
 					return math.floor(Value)
@@ -4491,6 +4505,7 @@ local cloneref = (cloneref or clonereference or function(instance: any)
 
 				return tonumber(string.format("%." .. Slider.Rounding .. "f", Value))
 			end
+            ]]
 
 			function Slider:GetValueFromXScale(X)
 				return Round(Library:MapValue(X, 0, 1, Slider.Min, Slider.Max))
